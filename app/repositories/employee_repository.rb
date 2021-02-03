@@ -15,7 +15,7 @@ class EmployeeRepository
     end
   end
 
-  def find_by_id(id)
+  def find(id)
     @employees.find do |employee|
       employee.id == id
     end

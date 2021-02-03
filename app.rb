@@ -7,6 +7,9 @@ require_relative "app/controllers/customers_controller" # You need to create thi
 require_relative "app/repositories/employee_repository"
 require_relative "app/controllers/sessions_controller"
 
+require_relative "app/repositories/order_repository"
+require_relative "app/controllers/orders_controller"
+
 require_relative "router"
 
 CSV_FILE = "data/meals.csv"
@@ -21,7 +24,11 @@ EMPLOYEE_CSV_FILE = "data/employees.csv"
 employee_repo = EmployeeRepository.new(EMPLOYEE_CSV_FILE)
 sessions_controller = SessionsController.new(employee_repo)
 
-router = Router.new(controller, customers_controller, sessions_controller)
+ORDER_CSV_FILE = "data/orders.csv"
+order_repo = OrderRepository.new(ORDER_CSV_FILE, repo, customer_repo, employee_repo)
+orders_controller = OrdersController.new(repo, customer_repo, employee_repo, order_repo)
+
+router = Router.new(controller, customers_controller, sessions_controller, orders_controller)
 
 # Start the app
 router.run
