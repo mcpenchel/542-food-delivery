@@ -2,7 +2,6 @@ require 'csv'
 require_relative '../models/employee'
 
 class EmployeeRepository
-
   def initialize(csv_file_path)
     @csv_file_path = csv_file_path
     @employees = []
@@ -29,6 +28,7 @@ class EmployeeRepository
   end
 
   private
+
   def load_csv
     csv_options = {
       col_sep: ',',
@@ -36,14 +36,13 @@ class EmployeeRepository
       headers: :first_row,
       header_converters: :symbol
     }
-    
+
     CSV.foreach(@csv_file_path, csv_options) do |row|
-      row[:id]    = row[:id].to_i
+      row[:id] = row[:id].to_i
 
       @employees << Employee.new(row)
     end
   end
-
 end
 
 # repo = EmployeeRepository.new('data/employees.csv')

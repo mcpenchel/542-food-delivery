@@ -1,7 +1,6 @@
 require_relative '../views/customer_view'
 
 class CustomersController
-
   def initialize(customer_repository)
     @repo = customer_repository
     @view = CustomerView.new
@@ -18,5 +17,4 @@ class CustomersController
     customers = @repo.all
     @view.display_all(customers)
   end
-
 end

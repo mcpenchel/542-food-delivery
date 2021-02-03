@@ -1,7 +1,6 @@
 require_relative '../views/meal_view'
 
 class MealsController
-
   def initialize(meal_repository)
     @repo = meal_repository
     @view = MealView.new
@@ -29,5 +28,4 @@ class MealsController
     # 2) Send it to the view, so that the view can display it
     @view.display_all(meals)
   end
-
 end

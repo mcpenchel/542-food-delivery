@@ -1,5 +1,4 @@
 class Employee
-
   attr_reader :id, :username, :password
 
   def initialize(attributes = {})
@@ -16,7 +15,6 @@ class Employee
   def rider?
     @role == "rider"
   end
-
 end
 
 # milene = Employee.new(

@@ -1,5 +1,4 @@
 class CustomerView
-
   def ask_for_name
     puts "What's the name?"
     gets.chomp
@@ -15,5 +14,4 @@ class CustomerView
       puts "#{customer.id}: #{customer.name} (living at #{customer.address})"
     end
   end
-
 end

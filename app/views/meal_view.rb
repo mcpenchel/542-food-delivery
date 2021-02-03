@@ -1,5 +1,4 @@
 class MealView
-
   def ask_for_name
     puts "What's the name?"
     gets.chomp
@@ -15,5 +14,4 @@ class MealView
       puts "#{meal.id}: #{meal.name} (#{meal.price} BRL)"
     end
   end
-
 end

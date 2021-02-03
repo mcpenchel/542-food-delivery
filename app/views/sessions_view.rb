@@ -1,5 +1,4 @@
 class SessionsView
-
   def ask_for(field)
     puts "#{field}?"
     puts ">"
@@ -13,5 +12,4 @@ class SessionsView
   def welcome(employee)
     puts "Welcome, #{employee.username}"
   end
-
 end

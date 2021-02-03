@@ -1,5 +1,4 @@
 class Meal
-
   # def initialize(id, name, price) => this is bad, old style
   attr_reader :name, :price
   attr_accessor :id # attr_reader + attr_writer
@@ -9,7 +8,6 @@ class Meal
     @name  = attributes[:name]
     @price = attributes[:price]
   end
-
 end
 
 # lunch = Meal.new(id: 1, name: "Fitness Rice with Carrot", price: 26)

@@ -1,7 +1,6 @@
 require_relative '../views/sessions_view'
 
 class SessionsController
-
   def initialize(employee_repository)
     @repo = employee_repository
     @view = SessionsView.new
@@ -27,5 +26,4 @@ class SessionsController
       sign_in
     end
   end
-
 end

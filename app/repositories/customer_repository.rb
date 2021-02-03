@@ -8,7 +8,6 @@ require 'csv' # require is to require a library!
 require_relative '../models/customer'
 
 class CustomerRepository
-
   def initialize(csv_file_path)
     @customers = []
     @csv_file_path = csv_file_path
@@ -36,16 +35,17 @@ class CustomerRepository
   end
 
   private
+
   # Other files, outside of this class, don't need to know
   # about the load_csv method.
   def save_csv
     csv_options = { col_sep: ',', force_quotes: true, quote_char: '"' }
-    
+
     # wb -> "write from beginning" => erases the file
     #                                 and write it from scratch
     CSV.open(@csv_file_path, 'wb', csv_options) do |csv|
       csv << ['id', 'name', 'address']
-      
+
       @customers.each do |customer|
         csv << [customer.id, customer.name, customer.address]
       end
@@ -59,12 +59,11 @@ class CustomerRepository
       headers: :first_row,
       header_converters: :symbol
     }
-    
+
     CSV.foreach(@csv_file_path, csv_options) do |row|
-      row[:id]    = row[:id].to_i
+      row[:id] = row[:id].to_i
 
       @customers << Customer.new(row)
     end
   end
-
 end
